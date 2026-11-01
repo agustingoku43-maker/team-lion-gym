@@ -1,18 +1,19 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TEAM LION | Entrenamiento</title>
+<meta name="description" content="TEAM LION: entrenamiento personalizado, planes de entrenamiento y seguimiento de alumnos.">
+<meta name="theme-color" content="#080808">
+<title>TEAM LION | Entrenamiento Personalizado</title>
+<link rel="icon" href="./logo.png">
 
 <style>
 :root {
-  --negro: #090909;
-  --dorado: #D4AF37;
-  --oro-claro: #F2D675;
-  --gris: #1A1A1A;
-  --blanco: #FFFFFF;
+  --gold: #d6ad45;
+  --black: #080808;
+  --dark: #141414;
+  --white: #f5f5f5;
 }
 
 * {
@@ -23,34 +24,47 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 90px;
 }
 
 body {
-  background: var(--negro);
-  color: var(--blanco);
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--black);
+  color: var(--white);
 }
 
-/* NAVEGACIÓN */
+img {
+  max-width: 100%;
+  display: block;
+}
 
 header {
-  background: #080808;
-  border-bottom: 1px solid #705A20;
-  padding: 18px 8%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   position: sticky;
   top: 0;
   z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 8%;
+  background: var(--black);
+  border-bottom: 1px solid #333;
 }
 
-.logo {
-  color: var(--dorado);
-  font-size: 25px;
-  font-weight: bold;
-  letter-spacing: 3px;
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--gold);
+  font-size: 23px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.brand img {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+  border-radius: 50%;
 }
 
 nav {
@@ -61,235 +75,222 @@ nav {
 nav a {
   color: white;
   text-decoration: none;
-  transition: .3s;
+  transition: color .3s;
 }
 
-nav a:hover {
-  color: var(--dorado);
+nav a:hover,
+nav a:focus-visible {
+  color: var(--gold);
 }
 
-/* INICIO */
-
-.inicio {
-  min-height: 570px;
-  padding: 100px 20px;
+.hero {
+  min-height: 85vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: radial-gradient(circle, #29210c 0%, #090909 65%);
+  padding: 40px 20px;
+  background: radial-gradient(ellipse at center, #332711, #080808 70%);
 }
 
-.leon {
-  font-size: 85px;
-  color: var(--dorado);
-  margin-bottom: 15px;
+/* Logo central del inicio */
+.hero-logo {
+  width: 190px;
+  height: 190px;
+  object-fit: contain;
+  margin: 0 auto 20px;
+  filter: drop-shadow(0 0 25px rgba(214, 173, 69, .35));
 }
 
-.inicio h1 {
-  font-size: clamp(40px, 7vw, 75px);
+/* Si logo.png no carga, se muestra este círculo */
+.logo-fallback {
+  display: none;
+  width: 190px;
+  height: 190px;
+  margin: 0 auto 20px;
+  border: 3px solid var(--gold);
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  font-size: 64px;
+  font-weight: 900;
   letter-spacing: 3px;
 }
 
-.inicio h1 span {
-  color: var(--dorado);
+.hero h1 {
+  font-size: clamp(38px, 7vw, 75px);
+  margin-bottom: 20px;
+  letter-spacing: 3px;
 }
 
-.inicio p {
-  color: #BBBBBB;
-  max-width: 600px;
-  margin: 20px auto 30px;
+.hero h1 span,
+.section-title span {
+  color: var(--gold);
+}
+
+.hero p {
+  max-width: 650px;
+  color: #ccc;
   font-size: 18px;
+  line-height: 1.7;
+  margin-bottom: 30px;
 }
 
-/* BOTONES */
-
-.boton {
+.btn {
   display: inline-block;
-  background: var(--dorado);
-  color: #080808;
-  padding: 14px 25px;
-  border-radius: 7px;
-  font-weight: bold;
+  padding: 15px 28px;
+  background: var(--gold);
+  color: black;
   text-decoration: none;
-  transition: .3s;
-  border: 1px solid var(--dorado);
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background .3s, color .3s, transform .3s;
 }
 
-.boton:hover {
-  background: transparent;
-  color: var(--dorado);
+.btn:hover,
+.btn:focus-visible {
+  background: white;
   transform: translateY(-3px);
 }
 
-.boton-secundario {
-  background: transparent;
-  color: var(--dorado);
-  margin-left: 10px;
-}
-
-/* SECCIONES */
-
 section {
   padding: 85px 8%;
-}
-
-.titulo {
   text-align: center;
-  margin-bottom: 45px;
 }
 
-.titulo h2 {
+.hero {
+  padding: 40px 20px;
+}
+
+.section-title {
   font-size: 35px;
+  margin-bottom: 20px;
 }
 
-.titulo span {
-  color: var(--dorado);
+.section-description {
+  color: #aaa;
+  margin-bottom: 45px;
+  line-height: 1.6;
 }
 
-.titulo p {
-  color: #AAAAAA;
-  margin-top: 10px;
+.services,
+.contact {
+  background: var(--dark);
 }
 
-/* TARJETAS */
-
-.servicios {
-  background: #101010;
-}
-
-.contenedor-tarjetas {
+.cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 25px;
 }
 
-.tarjeta {
-  background: var(--gris);
-  border: 1px solid #65501C;
-  padding: 30px;
-  border-radius: 12px;
-  text-align: center;
-  transition: .35s;
-}
-
-.tarjeta:hover {
-  transform: translateY(-10px);
-  border-color: var(--dorado);
-  box-shadow: 0 10px 30px #D4AF3725;
-}
-
-.icono {
-  font-size: 42px;
-  color: var(--dorado);
-  margin-bottom: 15px;
-}
-
-.tarjeta h3 {
-  color: var(--dorado);
-  margin-bottom: 12px;
-  font-size: 21px;
-}
-
-.tarjeta p {
-  color: #BBBBBB;
-  margin-bottom: 25px;
-}
-
-.tarjeta a {
-  color: var(--dorado);
+.card {
+  display: block;
+  background: #1b1b1b;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 35px 25px;
+  color: inherit;
   text-decoration: none;
-  font-weight: bold;
+  transition: transform .3s, border-color .3s, box-shadow .3s;
 }
 
-/* ENTRENADOR */
-
-.entrenador {
-  text-align: center;
-  background: #090909;
+.card:hover,
+.card:focus-visible {
+  transform: translateY(-8px);
+  border-color: var(--gold);
+  box-shadow: 0 8px 30px #d6ad4520;
 }
 
-.entrenador h2 {
-  color: var(--dorado);
-  font-size: 32px;
+.symbol {
+  font-size: 38px;
+  margin-bottom: 20px;
 }
 
-.entrenador p {
-  max-width: 650px;
-  margin: 20px auto;
-  color: #BBBBBB;
-}
-
-/* CONTACTO */
-
-.contacto {
-  text-align: center;
-  background: #151515;
-}
-
-.contacto h2 {
-  font-size: 35px;
+.card h3 {
   margin-bottom: 15px;
 }
 
-.contacto h2 span {
-  color: var(--dorado);
+.card p {
+  color: #aaa;
+  line-height: 1.6;
 }
 
-.contacto p {
-  color: #BBBBBB;
-  margin-bottom: 30px;
+.trainer-box {
+  max-width: 750px;
+  margin: auto;
+  padding: 35px;
+  border: 1px solid #333;
+  border-radius: 10px;
+  background: #111;
 }
 
-/* FOOTER */
+.trainer-box h3 {
+  color: var(--gold);
+  font-size: 27px;
+  margin-bottom: 15px;
+}
+
+.trainer-box p {
+  color: #bbb;
+  line-height: 1.8;
+}
+
+.contact-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 30px;
+}
+
+.btn.instagram {
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+}
+
+.btn.instagram:hover,
+.btn.instagram:focus-visible {
+  background: var(--gold);
+  color: black;
+}
 
 footer {
   padding: 25px;
   text-align: center;
-  color: #888;
-  border-top: 1px solid #705A20;
+  color: #777;
+  border-top: 1px solid #292929;
 }
 
-footer strong {
-  color: var(--dorado);
-}
-
-/* WHATSAPP FLOTANTE */
-
-.whatsapp {
+.floating-whatsapp {
   position: fixed;
   bottom: 22px;
   right: 22px;
-  background: #20C86A;
+  background: #25d366;
   color: white;
-  width: 58px;
-  height: 58px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  font-size: 27px;
   text-decoration: none;
-  z-index: 100;
-  box-shadow: 0 5px 20px #0008;
+  padding: 15px 20px;
+  border-radius: 50px;
+  font-weight: bold;
+  z-index: 99;
 }
 
-/* CELULARES */
-
-@media(max-width: 800px) {
+@media (max-width: 750px) {
   header {
     flex-direction: column;
     gap: 15px;
   }
 
   nav {
-    gap: 14px;
+    gap: 15px;
     flex-wrap: wrap;
     justify-content: center;
   }
 
-  .contenedor-tarjetas {
+  .cards {
     grid-template-columns: 1fr;
   }
 
@@ -297,22 +298,14 @@ footer strong {
     padding: 65px 6%;
   }
 
-  .inicio {
-    min-height: 500px;
+  .hero {
+    padding: 40px 20px;
   }
 
-  .boton-secundario {
-    margin: 10px 0 0;
-  }
-}
-
-@media(max-width: 420px) {
-  nav a {
-    font-size: 13px;
-  }
-
-  .inicio h1 {
-    font-size: 39px;
+  .hero-logo,
+  .logo-fallback {
+    width: 150px;
+    height: 150px;
   }
 }
 </style>
@@ -321,9 +314,12 @@ footer strong {
 <body>
 
 <header>
-  <div class="logo">♌ TEAM LION</div>
+  <div class="brand">
+    <img src="./logo.png" alt="" onerror="this.style.display='none'">
+    TEAM LION
+  </div>
 
-  <nav>
+  <nav aria-label="Principal">
     <a href="#inicio">Inicio</a>
     <a href="#servicios">Servicios</a>
     <a href="#entrenador">Entrenador</a>
@@ -331,146 +327,102 @@ footer strong {
   </nav>
 </header>
 
-<!-- INICIO -->
+<main>
 
-<section class="inicio" id="inicio">
-
-  <div class="leon">♌</div>
+<section class="hero" id="inicio">
+  <!-- LOGO CENTRAL: guardá tu imagen como logo.png en la misma carpeta -->
+  <img class="hero-logo" src="./logo.png" alt="Logo TEAM LION"
+       onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+  <div class="logo-fallback" aria-hidden="true">TL</div>
 
   <h1>DESPERTÁ <span>TU FUERZA.</span></h1>
 
   <p>
-    Entrenamiento personalizado para hombres y mujeres.
-    Disciplina, constancia y superación.
-    Construí tu mejor versión con TEAM LION.
+    Superá tus límites, construí disciplina y alcanzá tus objetivos.
+    Tu transformación comienza con una decisión.
   </p>
 
-  <div>
-    <a class="boton"
-       href="https://wa.me/5491155085788?text=Hola%20Thomas%2C%20quiero%20informacion%20sobre%20TEAM%20LION"
-       target="_blank">
+  <a class="btn" href="#servicios">CONOCÉ NUESTROS PLANES</a>
+</section>
+
+<section class="services" id="servicios">
+  <h2 class="section-title">NUESTROS <span>SERVICIOS</span></h2>
+
+  <p class="section-description">
+    Entrenamiento adaptado a tus objetivos y a tu ritmo.
+  </p>
+
+  <div class="cards">
+
+    <a class="card" href="https://wa.me/5491155085788?text=Hola%20TEAM%20LION%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20entrenamiento%20personalizado."
+       target="_blank" rel="noopener noreferrer">
+      <div class="symbol" aria-hidden="true">🏋️</div>
+      <h3>Entrenamiento personalizado</h3>
+      <p>Sesiones adaptadas a tus objetivos y necesidades.</p>
+    </a>
+
+    <a class="card" href="https://wa.me/5491155085788?text=Hola%20TEAM%20LION%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20planes%20de%20entrenamiento."
+       target="_blank" rel="noopener noreferrer">
+      <div class="symbol" aria-hidden="true">📋</div>
+      <h3>Planes de entrenamiento</h3>
+      <p>Planificación organizada para trabajar por tus metas.</p>
+    </a>
+
+    <a class="card" href="https://wa.me/5491155085788?text=Hola%20TEAM%20LION%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20seguimiento%20de%20alumnos."
+       target="_blank" rel="noopener noreferrer">
+      <div class="symbol" aria-hidden="true">🎯</div>
+      <h3>Seguimiento de alumnos</h3>
+      <p>Acompañamiento y seguimiento durante tu progreso.</p>
+    </a>
+
+  </div>
+</section>
+
+<section id="entrenador">
+  <h2 class="section-title">CONOCÉ A TU <span>ENTRENADOR</span></h2>
+
+  <div class="trainer-box">
+    <h3>TOMAS ALBARRACIN</h3>
+    <p>
+      En TEAM LION trabajamos con compromiso, disciplina
+      y objetivos claros. Cada entrenamiento es una oportunidad
+      para avanzar y superarte.
+    </p>
+  </div>
+</section>
+
+<section class="contact" id="contacto">
+  <h2 class="section-title">EMPEZÁ TU <span>CAMBIO</span></h2>
+
+  <p class="section-description">
+    Consultá por disponibilidad, modalidades y precios.
+  </p>
+
+  <div class="contact-buttons">
+    <a class="btn"
+       href="https://wa.me/5491155085788?text=Hola%20TEAM%20LION%2C%20quiero%20consultar%20por%20los%20entrenamientos."
+       target="_blank" rel="noopener noreferrer">
        CONSULTAR POR WHATSAPP
     </a>
 
-    <a class="boton boton-secundario" href="#servicios">
-       VER SERVICIOS
+    <a class="btn instagram"
+       href="https://www.instagram.com/team.lionssss/"
+       target="_blank" rel="noopener noreferrer">
+       SEGUINOS EN INSTAGRAM
     </a>
   </div>
-
 </section>
 
-<!-- SERVICIOS -->
-
-<section class="servicios" id="servicios">
-
-  <div class="titulo">
-    <h2>NUESTROS <span>SERVICIOS</span></h2>
-    <p>Elegí tu camino. Nosotros te acompañamos.</p>
-  </div>
-
-  <div class="contenedor-tarjetas">
-
-    <div class="tarjeta">
-      <div class="icono">✦</div>
-      <h3>Entrenamiento personalizado</h3>
-      <p>
-        Entrenamientos adaptados a tus objetivos,
-        necesidades y nivel de experiencia.
-      </p>
-      <a href="https://wa.me/5491155085788?text=Hola%2C%20quiero%20consultar%20por%20entrenamiento%20personalizado"
-         target="_blank">
-         CONSULTAR →
-      </a>
-    </div>
-
-    <div class="tarjeta">
-      <div class="icono">▤</div>
-      <h3>Planes de entrenamiento</h3>
-      <p>
-        Planificación de rutinas para trabajar
-        fuerza, resistencia y rendimiento.
-      </p>
-      <a href="https://wa.me/5491155085788?text=Hola%2C%20quiero%20consultar%20por%20planes%20de%20entrenamiento"
-         target="_blank">
-         CONSULTAR →
-      </a>
-    </div>
-
-    <div class="tarjeta">
-      <div class="icono">↗</div>
-      <h3>Seguimiento de alumnos</h3>
-      <p>
-        Acompañamiento y evaluación de tus avances
-        durante el proceso de entrenamiento.
-      </p>
-      <a href="https://wa.me/5491155085788?text=Hola%2C%20quiero%20consultar%20por%20seguimiento%20de%20alumnos"
-         target="_blank">
-         CONSULTAR →
-      </a>
-    </div>
-
-  </div>
-</section>
-
-<!-- ENTRENADOR -->
-
-<section class="entrenador" id="entrenador">
-
-  <h2>CONOCÉ TEAM LION</h2>
-
-  <p>
-    Thomas Font te acompaña en tu camino de entrenamiento.
-    Un espacio para trabajar con objetivos claros,
-    constancia y compromiso.
-  </p>
-
-  <p>
-    <strong style="color:#D4AF37;">TEAM LION</strong>
-    <br>
-    La fuerza está en vos.
-  </p>
-
-</section>
-
-<!-- CONTACTO -->
-
-<section class="contacto" id="contacto">
-
-  <h2>¿LISTO PARA <span>EMPEZAR?</span></h2>
-
-  <p>
-    Consultá por nuestros servicios y conocé
-    las opciones de entrenamiento.
-  </p>
-
-  <a class="boton"
-     href="https://wa.me/5491155085788?text=Hola%20Thomas%2C%20quiero%20informacion%20sobre%20TEAM%20LION"
-     target="_blank">
-     HABLAR POR WHATSAPP
-  </a>
-
-  <br><br>
-
-  <a class="boton boton-secundario"
-     href="https://www.instagram.com/team.lionssss/"
-     target="_blank">
-     SEGUIRNOS EN INSTAGRAM
-  </a>
-
-</section>
+</main>
 
 <footer>
-  <strong>TEAM LION</strong>
-  <p>Entrenamiento · Todos los derechos reservados © 2026</p>
+  © 2026 TEAM LION | Todos los derechos reservados.
 </footer>
 
-<!-- BOTÓN FLOTANTE -->
-
-<a class="whatsapp"
+<a class="floating-whatsapp"
    href="https://wa.me/5491155085788"
-   target="_blank"
-   aria-label="Contactar por WhatsApp">
-   ✆
+   target="_blank" rel="noopener noreferrer">
+   WhatsApp
 </a>
 
 </body>
